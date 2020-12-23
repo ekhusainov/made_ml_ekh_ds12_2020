@@ -13,11 +13,6 @@ def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
     return joblib.load(filename)
 
-# filename = os.path.join(dirname, 'news_vectorizer_dump.pkl')
-# vectorizer = joblib.load(filename)
-# filename = os.path.join(dirname, 'news_model_dump.pkl')
-# our_model = joblib.load(filename)
-
 
 def main():
     vectorizer = get_pkl('news_vectorizer_dump.pkl')
