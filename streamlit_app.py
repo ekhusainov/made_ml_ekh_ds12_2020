@@ -44,8 +44,8 @@ def tranform_our_string(our_string):
 
 
 def main():
-    vectorizer = get_pkl('news_vectorizer_dump.pkl')
-    our_model = get_pkl('news_model_dump.pkl')
+    vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
+    our_model = get_pkl('news_model_dump_0_1.pkl')
     st.title('Title for task')
     our_text = st.text_input("Input text please:")
     our_text = tranform_our_string(our_text)
