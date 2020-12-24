@@ -7,14 +7,14 @@ nltk.download('wordnet')
 
 DIRNAME = os.path.dirname(__file__)
 
-CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
-              'crime', 'drama', 'family', 'fantasy', 'history', 'horror',
-              'music', 'musical', 'mystery', 'romance', 'sci-fi', 'thriller',
-              'war']
+# CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
+#               'crime', 'drama', 'family', 'fantasy', 'history', 'horror',
+#               'music', 'musical', 'mystery', 'romance', 'sci-fi', 'thriller',
+#               'war']
 
-AGGRESSIVE_GENRE = ['action', 'crime', 'thriller']
+# AGGRESSIVE_GENRE = ['action', 'crime', 'thriller']
 
-VERY_AGGRESSIVE_GENRE = ['horror', 'war']
+# VERY_AGGRESSIVE_GENRE = ['horror', 'war']
 
 
 def get_pkl(filepath):
@@ -50,13 +50,11 @@ def main():
     our_text = st.text_input("Input text please:")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    answer = CLASS_LIST[class_index]
-    st.text(f"Genre: {answer}")
+    # answer = CLASS_LIST[class_index]
+    # st.text(f"Genre: {answer}")
     st.text("Current situation:")
-    if answer in AGGRESSIVE_GENRE:
+    if class_index:
         st.text("ALARM!!!")
-    elif answer in VERY_AGGRESSIVE_GENRE:
-        st.text("Warning!")
     else:
         st.text("Normal")
 
