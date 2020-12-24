@@ -18,9 +18,16 @@ def get_pkl(filepath):
 def main():
     vectorizer = get_pkl('news_vectorizer_dump.pkl')
     our_model = get_pkl('news_model_dump.pkl')
-    our_text = [input()]
-    class_index = our_model.predict(vectorizer.transform(our_text))[0]
-    print(CLASS_LIST[class_index])
+    # our_text = [input()]
+    st.title('ML MODEL!')
+    # our_text = st.text('Input your text')
+    # with st.echo():
+    our_text = st.text_input("hello input text")
+    class_index = our_model.predict(vectorizer.transform([our_text]))[0]
+    st.text(CLASS_LIST[class_index])
+    # our_text += 'ADD'
+    # st.write(our_text.text)
+    # print(CLASS_LIST[class_index])
 
 
 if __name__ == "__main__":
