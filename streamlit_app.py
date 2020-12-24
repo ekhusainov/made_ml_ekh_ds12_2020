@@ -54,7 +54,8 @@ def main():
     # st.text(f"Genre: {answer}")
     st.text("Current situation:")
     if class_index:
-        st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>")
+        st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
+        unsafe_allow_html=True)
         # st.text("ALARM!!!")
     else:
         st.text("Normal")
