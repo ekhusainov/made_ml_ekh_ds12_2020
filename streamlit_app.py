@@ -58,7 +58,8 @@ def main():
         unsafe_allow_html=True)
         # st.text("ALARM!!!")
     else:
-        st.text("Normal")
+        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation.</h2>",
+        unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
