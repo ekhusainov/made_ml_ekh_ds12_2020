@@ -12,7 +12,9 @@ CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
               'music', 'musical', 'mystery', 'romance', 'sci-fi', 'thriller',
               'war']
 
-AGGRESSIVE_GENRE = ['action', 'crime', 'horror', 'thriller', 'war']
+AGGRESSIVE_GENRE = ['action', 'crime', 'thriller']
+
+VERY_AGGRESSIVE_GENRE = ['horror', 'war']
 
 
 def get_pkl(filepath):
@@ -53,6 +55,8 @@ def main():
     st.text("Current situation:")
     if answer in AGGRESSIVE_GENRE:
         st.text("ALARM!!!")
+    elif answer in VERY_AGGRESSIVE_GENRE:
+        st.text("Warning!")
     else:
         st.text("Normal")
 
