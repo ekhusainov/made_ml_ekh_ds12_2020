@@ -35,8 +35,8 @@ def tranform_our_string(our_string):
     our_string = our_string.lower()
     # Lemmatization
     our_string = our_string.split()
-    our_string = stemmer.lemmatize(our_string)
-    # our_string = ' '.join(our_string)
+    our_string = [stemmer.lemmatize(word) for word in our_string]
+    our_string = ' '.join(our_string)
     return our_string
 
 
