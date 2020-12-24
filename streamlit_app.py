@@ -44,7 +44,7 @@ def main():
     vectorizer = get_pkl('news_vectorizer_dump.pkl')
     our_model = get_pkl('news_model_dump.pkl')
     # our_text = [input()]
-    st.title('Last ML home_work')
+    st.title('Последнее домашнее задание по МЛ')
     # our_text = st.text('Input your text')
     # with st.echo():
     our_text = st.text_input("Input text")
