@@ -1,6 +1,7 @@
-import streamlit as st
 import joblib
 import os
+import re
+import streamlit as st
 from nltk.stem import WordNetLemmatizer
 
 DIRNAME = os.path.dirname(__file__)
@@ -14,6 +15,35 @@ CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
 def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
     return joblib.load(filename)
+
+def tranform_our_string(our_string):
+    stemmer = WordNetLemmatizer()
+
+    # Remove all the special characters
+    our_string = re.sub(r'\W', ' ', our_string)
+    
+    # remove all single characters
+    our_string = re.sub(r'\s+[a-zA-Z]\s+', ' ', our_string)
+    
+    # Remove single characters from the start
+    our_string = re.sub(r'\^[a-zA-Z]\s+', ' ', our_string) 
+    
+    # Substituting multiple spaces with single space
+    our_string = re.sub(r'\s+', ' ', our_string, flags=re.I)
+    
+    # Removing prefixed 'b'
+    our_string = re.sub(r'^b\s+', '', our_string)
+    
+    # Converting to Lowercase
+    our_string = our_string.lower()
+    
+    # Lemmatization
+    our_string = document.split()
+
+    our_string = [stemmer.lemmatize(word) for word in our_string]
+    our_string = ' '.join(our_string)
+    
+
 
 
 def main():
