@@ -44,9 +44,9 @@ def main():
     our_model = get_pkl('news_model_dump.pkl')
     st.title('Последнее домашнее задание по МЛ')
     our_text = st.text_input("Введите текст на английском языке")
-    our_text = tranform_our_string(f"Genre: {our_text}")
+    our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    st.text(CLASS_LIST[class_index])
+    st.text(f"Genre: {CLASS_LIST[class_index]}")
 
 
 if __name__ == "__main__":
