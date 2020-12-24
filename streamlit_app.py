@@ -44,16 +44,17 @@ def tranform_our_string(our_string):
 def main():
     vectorizer = get_pkl('news_vectorizer_dump.pkl')
     our_model = get_pkl('news_model_dump.pkl')
-    st.title('Последнее домашнее задание по МЛ')
-    our_text = st.text_input("Введите текст на английском языке")
+    st.title('Title for task')
+    our_text = st.text_input("Input text please:")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
     answer = CLASS_LIST[class_index]
     st.text(f"Genre: {answer}")
+    st.text("Current situation:")
     if answer in AGGRESSIVE_GENRE:
         st.text("ALARM!!!")
     else:
-        st.text("Normal situation")
+        st.text("Normal")
 
 if __name__ == "__main__":
     main()
