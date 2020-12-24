@@ -2,7 +2,9 @@ import joblib
 import os
 import re
 import streamlit as st
-from nltk.stem import WordNetLemmatizer
+import nltk
+# from nltk.stem import WordNetLemmatizer
+nltk.download('wordnet')
 
 DIRNAME = os.path.dirname(__file__)
 
@@ -18,7 +20,7 @@ def get_pkl(filepath):
 
 
 def tranform_our_string(our_string):
-    stemmer = WordNetLemmatizer()
+    stemmer = nltk.stem.WordNetLemmatizer()
     # Remove all the special characters
     our_string = re.sub(r'\W', ' ', our_string)
     # remove all single characters
