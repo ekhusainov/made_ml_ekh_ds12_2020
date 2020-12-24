@@ -16,34 +16,26 @@ def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
     return joblib.load(filename)
 
+
 def tranform_our_string(our_string):
     stemmer = WordNetLemmatizer()
-
     # Remove all the special characters
     our_string = re.sub(r'\W', ' ', our_string)
-    
     # remove all single characters
     our_string = re.sub(r'\s+[a-zA-Z]\s+', ' ', our_string)
-    
     # Remove single characters from the start
-    our_string = re.sub(r'\^[a-zA-Z]\s+', ' ', our_string) 
-    
+    our_string = re.sub(r'\^[a-zA-Z]\s+', ' ', our_string)
     # Substituting multiple spaces with single space
     our_string = re.sub(r'\s+', ' ', our_string, flags=re.I)
-    
     # Removing prefixed 'b'
     our_string = re.sub(r'^b\s+', '', our_string)
-    
     # Converting to Lowercase
     our_string = our_string.lower()
-    
     # Lemmatization
-    our_string = document.split()
-
+    our_string = our_string.split()
     our_string = [stemmer.lemmatize(word) for word in our_string]
     our_string = ' '.join(our_string)
-    
-
+    return our_string
 
 
 def main():
@@ -54,6 +46,7 @@ def main():
     # our_text = st.text('Input your text')
     # with st.echo():
     our_text = st.text_input("Input text")
+    our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
     st.text(CLASS_LIST[class_index])
     # our_text += 'ADD'
