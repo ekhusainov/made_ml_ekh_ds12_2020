@@ -12,6 +12,8 @@ CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
               'music', 'musical', 'mystery', 'romance', 'sci-fi', 'thriller',
               'war']
 
+AGGRESSIVE_GENRE = ['action', 'crime', 'horror', 'thriller', 'war']
+
 
 def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
@@ -46,8 +48,12 @@ def main():
     our_text = st.text_input("Введите текст на английском языке")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    st.text(f"Genre: {CLASS_LIST[class_index]}")
-
+    answer = CLASS_LIST[class_index]
+    st.text(f"Genre: {answer}")
+    if answer in AGGRESSIVE_GENRE:
+        st.text("ALARM!!!")
+    else:
+        st.text("Normal situation")
 
 if __name__ == "__main__":
     main()
