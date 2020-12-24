@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import os
+from nltk.stem import WordNetLemmatizer
 
 DIRNAME = os.path.dirname(__file__)
 
