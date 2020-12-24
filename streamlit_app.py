@@ -47,7 +47,7 @@ def main():
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
     our_model = get_pkl('news_model_dump_0_1.pkl')
     st.title('Application for finding aggressive people')
-    our_text = st.text_input("Input text please:")
+    our_text = st.text_input("Text from current man:")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
     # answer = CLASS_LIST[class_index]
