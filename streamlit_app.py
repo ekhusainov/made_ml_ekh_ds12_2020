@@ -46,7 +46,7 @@ def tranform_our_string(our_string):
 def main():
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
     our_model = get_pkl('news_model_dump_0_1.pkl')
-    st.title('Title for task')
+    st.title('Application for finding aggressive people')
     our_text = st.text_input("Input text please:")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
@@ -58,7 +58,7 @@ def main():
         unsafe_allow_html=True)
         # st.text("ALARM!!!")
     else:
-        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation.</h2>",
+        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
         unsafe_allow_html=True)
 
 if __name__ == "__main__":
