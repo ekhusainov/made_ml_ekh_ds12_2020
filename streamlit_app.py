@@ -1,8 +1,10 @@
-import joblib
-import nltk
+"""Simple text classification application."""
 import os
 import random
 import re
+
+import joblib
+import nltk
 import streamlit as st
 
 nltk.download('wordnet')
@@ -23,11 +25,13 @@ EXAMPLE_TEXT = [
 
 
 def get_pkl(filepath):
+    """Load pkl files."""
     filename = os.path.join(DIRNAME, filepath)
     return joblib.load(filename)
 
 
 def tranform_our_string(our_string):
+    """Delete trash from string."""
     stemmer = nltk.stem.WordNetLemmatizer()
     # Remove all the special characters
     our_string = re.sub(r'\W', ' ', our_string)
@@ -49,8 +53,10 @@ def tranform_our_string(our_string):
 
 
 def main():
+    """Our int main."""
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
     our_model = get_pkl('news_model_dump_0_1.pkl')
+    our_text = EXAMPLE_TEXT[0]
     st.set_page_config(
         page_title="EKh Made2020",
     )
@@ -63,7 +69,7 @@ def main():
         our_text = EXAMPLE_TEXT[random_index]
         st.text_input(
             TEXT_FROM_CURRENT_PERSON,
-            #   value=our_text
+            value='',
         )
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
@@ -73,16 +79,16 @@ def main():
     class_index = our_model.predict(
         vectorizer.transform([our_text_after_tranform]))[0]
     st.text("Current text:")
-    st.markdown(f"<p>{our_text}</p>",
+    st.markdown(f"<p><b>{our_text}</b></p>",
                 unsafe_allow_html=True)
     st.text("Current situation:")
 
     if class_index:
-        st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
+        st.markdown("<h1 style='text-align: center; color: red;'>ALARM!!!</h1>",
                     unsafe_allow_html=True)
 
     else:
-        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
+        st.markdown("<h1 style='text-align: center; color: green;'>Normal situation</h1>",
                     unsafe_allow_html=True)
 
 
