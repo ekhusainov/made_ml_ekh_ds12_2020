@@ -1,6 +1,7 @@
 import joblib
 import nltk
 import os
+import random
 import re
 import streamlit as st
 
@@ -45,8 +46,14 @@ def main():
                 unsafe_allow_html=True)
     # our_text = st.text_input("Text from current man:")
 
-    if st.button('Example'):
-        our_text = "fucking moron"
+    example_text = [
+        "I love everyone",
+        "I want to kill everyone",
+    ]
+    lenght_example_text = len(example_text)
+    random_index = random.randint(0, lenght_example_text - 1)
+    if st.button('Random example'):
+        our_text = example_text(random_index)
         st.text_input("Text from current man:",
         value=our_text)
     else:
