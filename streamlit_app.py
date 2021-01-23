@@ -47,9 +47,6 @@ def tranform_our_string(our_string):
     our_string = ' '.join(our_string)
     return our_string
 
-def transform_text(our_text):
-    
-
 
 def main():
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
@@ -67,7 +64,6 @@ def main():
                       value=our_text)
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
-        
 
     our_text = tranform_our_string(our_text)
 
