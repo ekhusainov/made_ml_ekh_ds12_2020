@@ -65,9 +65,13 @@ def main():
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
 
-    our_text = tranform_our_string(our_text)
+    our_text_after_tranform = tranform_our_string(our_text)
 
-    class_index = our_model.predict(vectorizer.transform([our_text]))[0]
+    class_index = our_model.predict(
+        vectorizer.transform([our_text_after_tranform]))[0]
+    st.text("Current text:")
+    st.markdown(f"<p>{our_text}</p>",
+                unsafe_allow_html=True)
     st.text("Current situation:")
 
     if class_index:
