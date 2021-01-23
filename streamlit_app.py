@@ -43,7 +43,7 @@ def main():
     )
     st.markdown("<h1 style='text-align: center;'>Application for finding aggressive people</h1>",
                 unsafe_allow_html=True)
-    our_text = st.text_input("Text from current man:")
+    # our_text = st.text_input("Text from current man:")
 
     if st.button('Example'):
         our_text = "fucking moron"
