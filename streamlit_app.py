@@ -16,9 +16,9 @@ EXAMPLE_TEXT = [
         "Do you remember who gave us this",
         "Jesus Pop how can you stand the cold dressed like that",
         "Have you seen the bread?",
-        "Are you fucking retard?",
         "How much am I paying? I'm paying... one point five million and change.",
         "Fuck you man!  You don't like my fucking music get your own fucking cab!",
+        "Hello! How are you?",
     ]
 
 def get_pkl(filepath):
