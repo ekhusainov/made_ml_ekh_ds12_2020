@@ -1,20 +1,12 @@
 import joblib
+import nltk
 import os
 import re
 import streamlit as st
-import nltk
+
 nltk.download('wordnet')
 
 DIRNAME = os.path.dirname(__file__)
-
-# CLASS_LIST = ['action', 'adventure', 'animation', 'biography', 'comedy',
-#               'crime', 'drama', 'family', 'fantasy', 'history', 'horror',
-#               'music', 'musical', 'mystery', 'romance', 'sci-fi', 'thriller',
-#               'war']
-
-# AGGRESSIVE_GENRE = ['action', 'crime', 'thriller']
-
-# VERY_AGGRESSIVE_GENRE = ['horror', 'war']
 
 
 def get_pkl(filepath):
@@ -47,24 +39,22 @@ def main():
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
     our_model = get_pkl('news_model_dump_0_1.pkl')
     st.set_page_config(
-        page_title="Title_example",
+        page_title=EKh Made2020",
     )
-    # st.title('')
     st.markdown("<h1 style='text-align: center;'>Application for finding aggressive people</h1>",
-        unsafe_allow_html=True)
+                unsafe_allow_html=True)
     our_text = st.text_input("Text from current man:")
     our_text = tranform_our_string(our_text)
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    # answer = CLASS_LIST[class_index]
-    # st.text(f"Genre: {answer}")
     st.text("Current situation:")
     if class_index:
         st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
-        unsafe_allow_html=True)
-        # st.text("ALARM!!!")
+                    unsafe_allow_html=True)
+
     else:
         st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
-        unsafe_allow_html=True)
+                    unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     main()
