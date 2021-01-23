@@ -45,12 +45,18 @@ def main():
                 unsafe_allow_html=True)
     our_text = st.text_input("Text from current man:")
 
+    if st.button('Example'):
+        our_text = "fucking moron"
+        st.text_input("Text from current man:",
+        value=our_text)
+    else:
+        our_text = st.text_input("Text from current man:")
+
     
 
     our_text = tranform_our_string(our_text)
 
-    # if st.button('Example'):
-    #     our_text = "fucking moron"
+    
 
     
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
