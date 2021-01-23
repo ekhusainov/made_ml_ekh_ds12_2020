@@ -8,7 +8,19 @@ import streamlit as st
 nltk.download('wordnet')
 
 DIRNAME = os.path.dirname(__file__)
-
+TEXT_FROM_CURRENT_PERSON = "Text from current person:"
+EXAMPLE_TEXT = [
+        "I love everyone",
+        "I want to kill everyone",
+        "Only the stupid ones",
+        "Do you remember who gave us this",
+        "Jesus Pop how can you stand the cold dressed like that",
+        "You want me to get her",
+        "Are you fucking retard?",
+        "How much am I paying? I'm paying...one point five million and change.",
+        "This is funny?? This is tens of thousands of fucking dollars!",
+        "Fuck you man!  You don't like my fucking music get your own fucking cab!",
+    ]
 
 def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
@@ -44,42 +56,19 @@ def main():
     )
     st.markdown("<h1 style='text-align: center;'>Application for finding aggressive people</h1>",
                 unsafe_allow_html=True)
-    # our_text = st.text_input("Text from current man:")
-
-    example_text = [
-        "I love everyone",
-        "I want to kill everyone",
-        "Only the stupid ones",
-        "Do you remember who gave us this",
-        "Jesus Pop how can you stand the cold dressed like that",
-        "You want me to get her",
-        "Are you fucking retard?",
-        "How much am I paying? I'm paying...one point five million and change.",
-        "This is funny?? This is tens of thousands of fucking dollars!",
-        "Fuck you man!  You don't like my fucking music get your own fucking cab!",
-    ]
-    lenght_example_text = len(example_text)
+    lenght_example_text = len(EXAMPLE_TEXT)
     random_index = random.randint(0, lenght_example_text - 1)
     if st.button('Random example'):
-        our_text = example_text[random_index]
-        st.text_input("Text from current man:",
-        value=our_text)
+        our_text = EXAMPLE_TEXT[random_index]
+        st.text_input(TEXT_FROM_CURRENT_PERSON,
+                      value=our_text)
     else:
-        our_text = st.text_input("Text from current man:")
-
-    
+        our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
 
     our_text = tranform_our_string(our_text)
 
-    
-
-    
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
     st.text("Current situation:")
-
-    # if st.button('add'):
-    #     result = 5
-        # st.write('result: %s' % result)
 
     if class_index:
         st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
