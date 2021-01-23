@@ -54,7 +54,7 @@ def main():
         "Jesus Pop how can you stand the cold dressed like that",
         "You want me to get her",
         "Are you fucking retard?",
-        "I'm paying...one point five million and change. I hate round numbers.",
+        "How much am I paying? I'm paying...one point five million and change.",
         "This is funny?? This is tens of thousands of fucking dollars!",
         "Fuck you man!  You don't like my fucking music get your own fucking cab!",
     ]
