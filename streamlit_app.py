@@ -47,7 +47,7 @@ def tranform_our_string(our_string):
     our_string = ' '.join(our_string)
     return our_string
 
-def transform_text(our_text, our_model):
+def transform_text(our_text, our_model, vectorizer):
     our_text = tranform_our_string(our_text)
 
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
@@ -76,10 +76,10 @@ def main():
         our_text = EXAMPLE_TEXT[random_index]
         st.text_input(TEXT_FROM_CURRENT_PERSON,
                       value=our_text)
-        transform_text(our_text, our_model)
+        transform_text(our_text, our_model, vectorizer)
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
-        transform_text(our_text, our_model)
+        transform_text(our_text, our_model, vectorizer)
         
 
     # our_text = tranform_our_string(our_text)
