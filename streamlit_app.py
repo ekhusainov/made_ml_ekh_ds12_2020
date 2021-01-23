@@ -53,7 +53,7 @@ def main():
     lenght_example_text = len(example_text)
     random_index = random.randint(0, lenght_example_text - 1)
     if st.button('Random example'):
-        our_text = example_text(random_index)
+        our_text = example_text[random_index]
         st.text_input("Text from current man:",
         value=our_text)
     else:
