@@ -15,7 +15,7 @@ EXAMPLE_TEXT = [
         "Only the stupid ones",
         "Do you remember who gave us this",
         "Jesus Pop how can you stand the cold dressed like that",
-        "Stick with me on this Gloria.",
+        "Have you seen the papers?",
         "Are you fucking retard?",
         "How much am I paying? I'm paying... one point five million and change.",
         "Fuck you man!  You don't like my fucking music get your own fucking cab!",
