@@ -58,10 +58,11 @@ def main():
                 unsafe_allow_html=True)
     lenght_example_text = len(EXAMPLE_TEXT)
     random_index = random.randint(0, lenght_example_text - 1)
+
     if st.button('Random example'):
         our_text = EXAMPLE_TEXT[random_index]
-        st.text_input(TEXT_FROM_CURRENT_PERSON,
-                      value=our_text)
+        # st.text_input(TEXT_FROM_CURRENT_PERSON,
+        #               value=our_text)
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
 
