@@ -62,10 +62,9 @@ def main():
         our_text = EXAMPLE_TEXT[random_index]
         st.text_input(TEXT_FROM_CURRENT_PERSON,
                       value=our_text)
-    else:
-        our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
-        st.text_input(TEXT_FROM_CURRENT_PERSON,
-                      value=our_text)
+    # else:
+    our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
+        
 
     our_text = tranform_our_string(our_text)
 
