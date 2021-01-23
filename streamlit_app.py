@@ -50,7 +50,7 @@ def main():
     our_text = tranform_our_string(our_text)
 
     if st.button('Example'):
-        our_text = "Nonono. Marylin I'm your husband."
+        our_text = "fucking moron"
     
     class_index = our_model.predict(vectorizer.transform([our_text]))[0]
     st.text("Current situation:")
