@@ -46,6 +46,7 @@ def tranform_our_string(our_string):
 def main():
     vectorizer = get_pkl('news_vectorizer_dump_0_1.pkl')
     our_model = get_pkl('news_model_dump_0_1.pkl')
+    st.title('Title')
     # st.title('')
     st.markdown("<h1 style='text-align: center;'>Application for finding aggressive people</h1>",
         unsafe_allow_html=True)
