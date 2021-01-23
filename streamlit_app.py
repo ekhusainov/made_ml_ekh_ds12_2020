@@ -49,6 +49,14 @@ def main():
     example_text = [
         "I love everyone",
         "I want to kill everyone",
+        "Only the stupid ones",
+        "Do you remember who gave us this",
+        "Jesus Pop how can you stand the cold dressed like that",
+        "You want me to get her",
+        "Are you fucking retard?",
+        "I'm paying...one point five million and change. I hate round numbers.",
+        "This is funny?? This is tens of thousands of fucking dollars!",
+        "Fuck you man!  You don't like my fucking music get your own fucking cab!",
     ]
     lenght_example_text = len(example_text)
     random_index = random.randint(0, lenght_example_text - 1)
