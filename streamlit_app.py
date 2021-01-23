@@ -10,16 +10,17 @@ nltk.download('wordnet')
 DIRNAME = os.path.dirname(__file__)
 TEXT_FROM_CURRENT_PERSON = "Text from current person:"
 EXAMPLE_TEXT = [
-        "I love everyone",
-        "I want to kill everyone",
-        "Only the stupid ones",
-        "Do you remember who gave us this",
-        "Jesus Pop how can you stand the cold dressed like that",
-        "Have you seen the bread?",
-        "How much am I paying? I'm paying... one point five million and change.",
-        "Fuck you man!  You don't like my fucking music get your own fucking cab!",
-        "Hello! How are you?",
-    ]
+    "I love everyone",
+    "I want to kill everyone",
+    "Only the stupid ones",
+    "Do you remember who gave us this",
+    "Jesus Pop how can you stand the cold dressed like that",
+    "Have you seen the bread?",
+    "How much am I paying? I'm paying... one point five million and change.",
+    "Fuck you man!  You don't like my fucking music get your own fucking cab!",
+    "Hello! How are you?",
+]
+
 
 def get_pkl(filepath):
     filename = os.path.join(DIRNAME, filepath)
@@ -62,7 +63,8 @@ def main():
         st.text_input(TEXT_FROM_CURRENT_PERSON,
                       value=our_text)
     else:
-        our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
+        our_text = st.text_input(TEXT_FROM_CURRENT_PERSON,
+                                 value=our_text)
 
     our_text = tranform_our_string(our_text)
 
