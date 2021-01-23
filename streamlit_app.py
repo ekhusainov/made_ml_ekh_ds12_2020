@@ -47,19 +47,8 @@ def tranform_our_string(our_string):
     our_string = ' '.join(our_string)
     return our_string
 
-def transform_text(our_text, our_model, vectorizer):
-    our_text = tranform_our_string(our_text)
-
-    class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    st.text("Current situation:")
-
-    if class_index:
-        st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
-                    unsafe_allow_html=True)
-
-    else:
-        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
-                    unsafe_allow_html=True)
+def transform_text(our_text):
+    
 
 
 def main():
@@ -76,24 +65,22 @@ def main():
         our_text = EXAMPLE_TEXT[random_index]
         st.text_input(TEXT_FROM_CURRENT_PERSON,
                       value=our_text)
-        transform_text(our_text, our_model, vectorizer)
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
-        transform_text(our_text, our_model, vectorizer)
         
 
-    # our_text = tranform_our_string(our_text)
+    our_text = tranform_our_string(our_text)
 
-    # class_index = our_model.predict(vectorizer.transform([our_text]))[0]
-    # st.text("Current situation:")
+    class_index = our_model.predict(vectorizer.transform([our_text]))[0]
+    st.text("Current situation:")
 
-    # if class_index:
-    #     st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
-    #                 unsafe_allow_html=True)
+    if class_index:
+        st.markdown("<h2 style='text-align: center; color: red;'>ALARM!!!</h2>",
+                    unsafe_allow_html=True)
 
-    # else:
-    #     st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
-    #                 unsafe_allow_html=True)
+    else:
+        st.markdown("<h2 style='text-align: center; color: green;'>Normal situation</h2>",
+                    unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
