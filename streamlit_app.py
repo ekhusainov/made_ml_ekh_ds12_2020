@@ -74,6 +74,9 @@ def main():
     else:
         our_text = st.text_input(TEXT_FROM_CURRENT_PERSON)
 
+    if st.button('Clear'):
+        our_text = ''
+
     our_text_after_tranform = tranform_our_string(our_text)
 
     class_index = our_model.predict(
